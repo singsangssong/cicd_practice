@@ -31,7 +31,7 @@ jobs:
       - name: Build with Gradle
         run: ./gradlew clean build
 
-      # Debug: Check if the JAR is generated
+      # 디버깅: JAR 파일 확인
       - name: Check JAR file
         run: ls -al build/libs/
 
