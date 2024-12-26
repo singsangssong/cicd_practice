@@ -2,7 +2,6 @@
 FROM openjdk:17-jdk
 
 # 디렉토리 생성 및 이동
-RUN mkdir -p /app
 WORKDIR /app
 
 # Copy build artifact (JAR)
