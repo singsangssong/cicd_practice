@@ -9,11 +9,11 @@ WORKDIR /app
 ADD build/libs/apple_oauth-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Set environment variables
-ENV JAVA_OPTS=""
+ENV JAVA_OPTS="-Dserver.port=8080"
 ENV PORT=8080
 
 # Expose the application port
 EXPOSE 8080
 
 # Command to run the application
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar /app/app.jar"]
+ENTRYPOINT ["java", "-jar", "/app/app.jar"]
