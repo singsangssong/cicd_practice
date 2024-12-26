@@ -5,7 +5,7 @@ FROM openjdk:17-jdk
 WORKDIR /app
 
 # Copy build artifact (JAR)
-ADD build/libs/apple_oauth-0.0.1-SNAPSHOT.jar /app/app.jar
+COPY build/libs/apple_oauth-0.0.1-SNAPSHOT.jar /app/app.jar
 
 # Set environment variables
 ENV JAVA_OPTS="-Dserver.port=8080"
