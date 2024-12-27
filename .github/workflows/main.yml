@@ -83,4 +83,4 @@ jobs:
           sudo docker stop ${{ env.NAME }} || true
           sudo docker rm ${{ env.NAME }} || true
           sudo docker rmi ${{ env.DOCKER_IMAGE }}:latest || true
-          sudo docker run -d -p 80:8080 --name ${{ env.NAME }} --restart always ${{ env.DOCKER_IMAGE }}:${{ env.VERSION }}
+          sudo docker run -d -p 80:8080 --name go_cicd --restart always ${{ env.DOCKER_IMAGE }}:latest
