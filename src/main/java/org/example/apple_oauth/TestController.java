@@ -10,4 +10,9 @@ public class TestController {
     public ResponseEntity<String> testHealth() {
         return ResponseEntity.ok("healthy man!");
     }
+
+    @GetMapping("/wow")
+    public ResponseEntity<String> testPlusCode() {
+        return ResponseEntity.ok("this is 안지현!");
+    }
 }
