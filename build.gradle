@@ -29,6 +29,26 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     compileOnly 'org.projectlombok:lombok'
 
+    // jwt
+    implementation 'io.jsonwebtoken:jjwt-api:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-impl:0.11.2'
+    implementation 'io.jsonwebtoken:jjwt-jackson:0.11.2'
+
+    // objectMapper
+    implementation 'org.bouncycastle:bcprov-jdk15to18:1.79'
+
+    // Jackson JSON Processor
+    implementation 'com.fasterxml.jackson.core:jackson-databind:2.15.2'
+
+    // Nimbus JOSE + JWT
+    implementation 'com.nimbusds:nimbus-jose-jwt:9.31'
+
+    // Apache Commons IO (for file handling)
+    implementation 'commons-io:commons-io:2.13.0'
+
+    implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
+
+    implementation 'net.minidev:json-smart:2.4.11'
 }
 
 tasks.named('test') {
