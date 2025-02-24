@@ -6,10 +6,10 @@ on:
     branches: [ main, dev ]
 
 # 환경설정
-env:
-  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/spring-auto-deploy
-  VERSION: ${{ github.sha }}
-  NAME: go_cicd
+#env:
+#  DOCKER_IMAGE: ghcr.io/${{ github.actor }}/spring-auto-deploy
+#  VERSION: ${{ github.sha }}
+#  NAME: go_cicd
 
 permissions:
   contents: read
@@ -57,8 +57,6 @@ jobs:
     runs-on: ubuntu-latest
     name: Deploy
     steps:
-      - name: Login to Docker
-
       - name: Deploy all containers to GCP
         uses: appleboy/ssh-action@master
         with:
@@ -66,7 +64,10 @@ jobs:
           username: ${{ secrets.VM_USERNAME }}
           key: ${{ secrets.VM_SSH_PRIVATE_KEY }}
           script: |
-            sudo docker rm $(sudo docker ps -a
+            
+            docker-compose down
+
+            sudo docker rm $(sudo docker ps -aq)
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}
             cd ~
             docker-compose up -d
