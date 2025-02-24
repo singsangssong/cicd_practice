@@ -1,0 +1,44 @@
+version: '3.8'
+
+services:
+
+  mysql:
+    image: mysql:8.0.33
+    platform: linux/amd64
+    container_name: ruty-mysql
+    restart: always
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: ruty_db
+      MYSQL_ROOT_PASSWORD: bunnies
+      MYSQL_USER: ruty
+      MYSQL_PASSWORD: bunnies
+    networks:
+      - testnet
+  redis:
+    container_name: ruty-redis
+    image: redis
+    ports:
+      - 6379:6379
+    restart: always
+    networks:
+      - testnet
+
+  backend:
+    container_name: ruty-server
+    image: singsangssong/cicd-practice
+    expose:
+      - 8080
+    ports:
+      - 8080:8080
+    restart: always
+    depends_on:
+      - mysql
+      - redis
+    networks:
+      - testnet
+
+networks:
+  mynet:
+    driver: bridge
