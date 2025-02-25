@@ -10,10 +10,10 @@ services:
     ports:
       - 3306:3306
     environment:
-      MYSQL_DATABASE: ruty_db
-      MYSQL_ROOT_PASSWORD: bunnies
-      MYSQL_USER: ruty
-      MYSQL_PASSWORD: bunnies
+      MYSQL_DATABASE: test
+      MYSQL_ROOT_PASSWORD: test
+      MYSQL_USER: song
+      MYSQL_PASSWORD: 1234
     networks:
       - testnet
   redis:
