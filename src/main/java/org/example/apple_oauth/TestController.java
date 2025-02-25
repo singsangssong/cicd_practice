@@ -35,8 +35,8 @@ public class TestController {
 
     @PostMapping("/data")
     public ResponseEntity<?> saveMember() {
-        MemberDto memberDto = MemberDto.builder().name("hun").age(10l).build();
-        Member member = Member.builder().name("hun").age(10l).build();
+        MemberDto memberDto = MemberDto.builder().name("backtoFucking").age(10l).build();
+        Member member = Member.builder().name("backtoFucking").age(10l).build();
 
         Member save = memberRepository.save(member);
         return ResponseEntity.ok(save.getId());
