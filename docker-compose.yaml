@@ -8,12 +8,16 @@ services:
     container_name: ruty-mysql
     restart: always
     ports:
-      - 3306:3306
+      - 3307:3306 # 배포된 환경에서는 3306:3306
     environment:
       MYSQL_DATABASE: test
       MYSQL_ROOT_PASSWORD: test
       MYSQL_USER: song
       MYSQL_PASSWORD: 1234
+    volumes:
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/config:/etc/mysql/conf.d
+      - ./mysql/init:/docker-entrypoint-initdb.d
     networks:
       - testnet
   redis:
