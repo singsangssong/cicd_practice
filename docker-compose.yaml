@@ -40,5 +40,5 @@ services:
       - testnet
 
 networks:
-  mynet:
+  testnet:
     driver: bridge
