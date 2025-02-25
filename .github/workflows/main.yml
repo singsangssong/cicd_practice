@@ -67,7 +67,7 @@ jobs:
           script: |
             set -e
             sudo docker-compose down
-            sudo docker rm $(sudo docker ps -aq)
+            sudo docker rm $(sudo docker ps -a)
             sudo docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
             sudo docker pull ${{ secrets.DOCKER_USERNAME }}/${{ secrets.DOCKER_REPO }}:latest
             cd ~
